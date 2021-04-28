@@ -224,7 +224,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // displaying to dos - Today
     function displayToDosToday() {
-        let currentDate = new Date().toLocaleDateString ().substr(0, 19);
+        let currentDate = new Date().toLocaleDateString().substr(0, 19);
         for (i in myTodos){
             if (myTodos[i].dueDate == currentDate) {
                 displayCreateToDo(myTodos[i]);
