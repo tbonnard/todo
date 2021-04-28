@@ -221,7 +221,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // displaying to dos - Today -- updat date in milliseconds as date format different between mobile-desktop
     //Mobile: 4/28/2021 vs data: 2021-04-28 ==> all in milliseconds so
     function displayToDosToday() {
-        let currentDate = new Date().toLocaleDateString().substr(0, 19);
+        let currentDate = new Date().toLocaleDateString().substr(0, 10);
         currentDate = new Date(currentDate).getTime();
         for (i in myTodos){
             console.log(new Date(myTodos[i].dueDate).getTime());
