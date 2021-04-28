@@ -105,9 +105,9 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
+
     // click on the today
     document.querySelector('#date_t').addEventListener('click', function () {
-        console.log('abc');
         removeInboxTitle();
         projectDisplay = 'Inbox';
         filter='Today';
@@ -218,13 +218,14 @@ document.addEventListener("DOMContentLoaded", function () {
     }  
 
 
-    // displaying to dos - Today
+    // displaying to dos - Today -- updat date in milliseconds as date format different between mobile-desktop
+    //Mobile: 4/28/2021 vs data: 2021-04-28 ==> all in milliseconds so
     function displayToDosToday() {
         let currentDate = new Date().toLocaleDateString().substr(0, 19);
-        console.log(currentDate);
+        currentDate = new Date(currentDate).getTime();
         for (i in myTodos){
-            console.log(myTodos[i].dueDate);
-            if (myTodos[i].dueDate == currentDate) {
+            console.log(new Date(myTodos[i].dueDate).getTime());
+                if (new Date(myTodos[i].dueDate).getTime() == currentDate) {
                 displayCreateToDo(myTodos[i]);
             }
         }
