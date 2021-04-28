@@ -174,6 +174,7 @@ document.addEventListener("DOMContentLoaded", function () {
     //click on the create to do button to create a new to do
     document.querySelector('#create_todo').addEventListener('click', function () {
         if (titleToDo.value !='') {
+            //createToDo(projectDisplay, titleToDo.value, descriptionToDo.value, new Date(dueDateToDo.value).getTime(), prioToDo.value);
             createToDo(projectDisplay, titleToDo.value, descriptionToDo.value, dueDateToDo.value, prioToDo.value);
         } else {titleToDo.style.borderColor = 'red'}
     });
@@ -220,13 +221,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // displaying to dos - Today -- updat date in milliseconds as date format different between mobile-desktop
     //Mobile: 4/28/2021 vs data: 2021-04-28 ==> all in milliseconds so
+    // current (28/04): 1619582400000
+    // item date mobile (28/04) -- seems to be 27/04: 1619568000000
+
     function displayToDosToday() {
-        let currentDate = new Date().toLocaleDateString().substr(0, 10);
-        currentDate = new Date(currentDate).getTime();
+        let currentDate = new Date().toISOString().substr(0, 10);
         console.log(currentDate);
         for (i in myTodos){
-            console.log(new Date(myTodos[i].dueDate).getTime());
-                if (new Date(myTodos[i].dueDate).getTime() == currentDate) {
+            console.log(new Date(myTodos[i].dueDate).toISOString().substr(0, 10));
+                if (new Date(myTodos[i].dueDate).toISOString().substr(0, 10) == currentDate) {
                 displayCreateToDo(myTodos[i]);
             }
         }
