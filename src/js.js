@@ -116,7 +116,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
-
     // click on the  week
     document.querySelector('#date_w').addEventListener('click', function () {
         removeInboxTitle();
@@ -126,8 +125,6 @@ document.addEventListener("DOMContentLoaded", function () {
         hideCreate();
         displayToDos();
     });
-
-
 
 
     // elements related to the To Dos
@@ -216,16 +213,16 @@ document.addEventListener("DOMContentLoaded", function () {
                     displayCreateToDo(myTodos[i]);
                 }
             }
-        }  
-        //eventEdit(); 
-       
+        }        
     }  
 
 
     // displaying to dos - Today
     function displayToDosToday() {
         let currentDate = new Date().toLocaleDateString().substr(0, 19);
+        console.log(currentDate);
         for (i in myTodos){
+            console.log(myTodos[i].dueDate);
             if (myTodos[i].dueDate == currentDate) {
                 displayCreateToDo(myTodos[i]);
             }
