@@ -223,6 +223,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function displayToDosToday() {
         let currentDate = new Date().toLocaleDateString().substr(0, 10);
         currentDate = new Date(currentDate).getTime();
+        console.log(currentDate);
         for (i in myTodos){
             console.log(new Date(myTodos[i].dueDate).getTime());
                 if (new Date(myTodos[i].dueDate).getTime() == currentDate) {
