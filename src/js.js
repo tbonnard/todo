@@ -107,6 +107,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // click on the today
     document.querySelector('#date_t').addEventListener('click', function () {
+        console.log('abc');
         removeInboxTitle();
         projectDisplay = 'Inbox';
         filter='Today';
