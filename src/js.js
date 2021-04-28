@@ -187,9 +187,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
-
     const container = document.querySelector('.todos');
-
 
     // display title of the To Do / section and remove previous to do if already displayed (avoid duplicates when create elements)
     function prepareDisplayToDo() {
@@ -198,7 +196,8 @@ document.addEventListener("DOMContentLoaded", function () {
         if (filter == 'Today') {h2.textContent = filter;}
         else if( filter == 'Week' ) {h2.textContent = "This week / Due";}
         else {
-        h2.textContent = projectDisplay;}
+            h2.textContent = projectDisplay;
+        }
         h2.id = 'Inbox_title';
         container.append(h2);
     }
@@ -221,8 +220,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // displaying to dos - Today -- updat date in milliseconds as date format different between mobile-desktop
     //Mobile: 4/28/2021 vs data: 2021-04-28 ==> all in milliseconds so
-    // current (28/04): 1619582400000
-    // item date mobile (28/04) -- seems to be 27/04: 1619568000000
+    // we remove hours --> .substr(0, 10);
+    // bug with timezone so using UTC time -- .toISOString()
 
     function displayToDosToday() {
         let currentDate = new Date().toISOString().substr(0, 10);

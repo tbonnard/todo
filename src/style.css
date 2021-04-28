@@ -88,15 +88,19 @@ h3:hover {
     cursor: pointer;
 }
 
-
 h2 {
     font-size: 18px;
     font-weight: bold;
     margin-left: 20px;
     margin-bottom: 10px;
-
 }
 
+#Inbox_title, #new_create_title {
+    margin-left: 0px;
+    text-align: center;
+    margin-bottom: 20px;
+
+}
 
 .global {
     width: 50%;
