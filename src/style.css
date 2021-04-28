@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+
+html {
+    overflow: scroll;
+    overflow-x: hidden;
+}
+::-webkit-scrollbar {
+    width: 0; 
+    background: transparent; 
+}
+
+html, body{
+    height:100%;
+    width: 100%;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+
+}
+
+.topNav{
+    top: 0;
+    background-color: #db4c3f;
+    position: sticky;
+    height: 100px;
+    z-index: 9999;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 20px;
+    padding-left: 20px;
+    align-items: center;
+}
+
+.topNav img {
+    width: 24px;
+    cursor: pointer;
+}
+
+h1 {
+    font-size: 25px;
+    color: white;
+}
+
+
+.sidebar {
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #f7f7f7;
+    overflow-x: hidden;
+    padding-top: 115px;
+    transition: transform .3s ease;
+}
+
+.sidebarTransform {
+    transform: translateX(-200px);
+}
+
+h3 {
+    padding: 6px 8px 6px 30px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #818181;
+    display: block;
+    cursor: pointer;
+}
+
+h3:hover {
+    color: #5e5e5e;
+}
+
+
+.project {
+    margin-top: 40px;
+}
+
+.project input {
+    width: 100px;
+    margin-left: 50px;
+    margin-top: 10px;
+}
+
+#submit_new_project {
+    width: 24px;
+    padding-left: 90px;
+    padding-top: 5px;
+    cursor: pointer;
+}
+
+
+h2 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: 20px;
+    margin-bottom: 10px;
+
+}
+
+
+.global {
+    width: 50%;
+    margin: 0 auto;
+    padding-top: 25px;
+}
+
+.item {
+    border-bottom: 1px solid #ececec;
+    min-height: 30px;
+    line-height: 30px;
+    padding:  10px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+
+h4 {
+    font-size: 16px;
+    padding-left: 20px;
+}
+
+.icons {
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 19px;
+    opacity: 0.7;
+    border: 1px solid white;
+    padding: 5px;
+}
+
+
+.icons:hover {
+    border-radius: 25px;
+    border: 1px solid #ececec;
+    background-color: rgb(213, 236, 255);
+    padding: 5px;
+    cursor: pointer;
+}
+
+.icons_prio {
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 15px;
+    opacity: 0.7;
+    border: 1px solid white;
+    padding: 5px;
+    background-color:  rgb(247, 247, 247);
+    border-radius: 50px;
+}
+
+
+.create{
+    text-align: center;
+}
+
+.create input {
+    display: block;
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 400px) {
+    .icons {
+        width: 17px;
+    }
+
+    .global {
+        width: 95%;
+        margin: 0 auto;
+    }
+
+}

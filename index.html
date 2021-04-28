@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="src/js.js"></script>
+    <link rel="stylesheet" href="src/reset.css">
+    <link rel="stylesheet" href="src/style.css">
+    <title>To Do</title>
+</head>
+<body>
+
+
+
+<div class='sidebar'>
+    <h3 id='inbox'>Inbox</h3>
+    <h3 id='date_t'>Today</h3>
+    <h3 id='date_w'>This week / Due</h3>
+    <div class="project">
+        <h2 id='project_title'>Projects</h2>
+        <div id = 'project_list'>
+                    <!--  Div displaying Projects -- JS DOM  creation -->
+        </div>
+        <input type="text" id="input_new_project" placeholder="new project" required>
+        <div>
+            <img id='submit_new_project' src="src/img/add_proj.png" alt='add_project' title='Add a new project'>
+        </div>
+    </div>
+</div>
+
+    
+
+<div class='topNav'>
+    <div>
+        <img id='menu' src="src/img/menu.png" alt='add_to_do' title='Add a new to do'>
+    </div>
+    <h1>To Do</h1>
+    <div>
+        <img id='img_add_top_nav' src="src/img/plus.png" alt='add_to_do' title='Add a new to do'>
+    </div>
+</div>
+
+
+<div class='global'>
+
+    <div class='create'>
+        <h2>New to do</h2>
+        <form>
+            <label for="title">Title</label>
+            <input type="text" id="title" required>
+            <label for="description">Description</label>
+            <input type="text" id="description" >
+            <label for="dueDate">Due date</label>
+            <input type="date" id="dueDate">
+            <label for="priority">Priority</label>
+            <select id="priority"> 
+                <option value="Low">Low</option>
+                <option value="Medium" selected="selected">Medium</option>
+                <option value="High">High</option>
+            </select>
+        </form>
+            <input type='submit' id='create_todo' value='Create'>
+            <input type='submit' id='update_todo' value='Update'>
+            <input type='submit' id='cancel' value="Cancel"> 
+      
+    </div>
+  
+    <div class='todos'>
+        <!--  Div displaying To Dos -- JS DOM  creation -->
+    </div>
+
+</div>
+</body>
+</html>
