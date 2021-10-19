@@ -1,27 +1,28 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Karla&display=swap');
 
 html {
     overflow: scroll;
     overflow-x: hidden;
 }
 ::-webkit-scrollbar {
-    width: 0; 
-    background: transparent; 
+    width: 0;
+    background: transparent;
 }
 
 html, body{
-    height:100%;
-    width: 100%;
-    font-family: 'Poppins', Arial, Helvetica, sans-serif;
-
+    /* font-family: 'Poppins', Arial, Helvetica, sans-serif; */
+    font-family: 'Karla', Arial, Helvetica, sans-serif;
+    position: relative;
+    background-color: #f9f9f9;
 }
 
-.topNav{
+/* .topNav{
     top: 0;
-    background-color: #db4c3f;
+    background-color: #f9f9f9;
     position: sticky;
     height: 100px;
-    z-index: 9999;
+    z-index: 2;
     display: flex;
     justify-content: space-between;
     padding-right: 20px;
@@ -32,13 +33,20 @@ html, body{
 .topNav img {
     width: 24px;
     cursor: pointer;
-}
+} */
 
 h1 {
     font-size: 25px;
-    color: white;
+    color: #bdbdbd;
+    margin: 50px 0 30px 20px;
+    color:#4ac089;
 }
 
+hr {
+  border: none;
+  border-top: solid #f3f3f3 1px;
+  margin-bottom: 20px;
+}
 
 .sidebar {
     height: 100%;
@@ -47,21 +55,34 @@ h1 {
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #f7f7f7;
+    background-color: #fff;
     overflow-x: hidden;
-    padding-top: 115px;
     transition: transform .3s ease;
+    border-right:1px solid #f3f3f3;
+
 }
 
 .sidebarTransform {
     transform: translateX(-200px);
 }
 
+#menu{
+  position: absolute;
+  right: 50px;
+  top:50px;
+}
+
+#img_add_top_nav{
+  position: relative;
+  top:50px;
+  left:90%;
+}
+
 h3 {
     padding: 6px 8px 6px 30px;
     text-decoration: none;
     font-size: 18px;
-    color: #818181;
+    color: #b7b7b7;
     display: block;
     cursor: pointer;
 }
@@ -90,7 +111,6 @@ h3:hover {
 
 h2 {
     font-size: 18px;
-    font-weight: bold;
     margin-left: 20px;
     margin-bottom: 10px;
 }
@@ -99,7 +119,11 @@ h2 {
     margin-left: 0px;
     text-align: center;
     margin-bottom: 20px;
+    color: #4ac089;
+}
 
+#project_title {
+    color: #4ac089;
 }
 
 .global {
@@ -117,6 +141,7 @@ h2 {
     justify-content: space-between;
     margin-top: 10px;
     margin-bottom: 10px;
+    background-color: #fff;
 }
 
 
@@ -138,8 +163,9 @@ h4 {
 
 .icons:hover {
     border-radius: 25px;
-    border: 1px solid #ececec;
-    background-color: rgb(213, 236, 255);
+    border: 1px solid #fff;
+    /* background-color: rgb(213, 236, 255); */
+    background-color: #4ac089;
     padding: 5px;
     cursor: pointer;
 }
@@ -151,8 +177,9 @@ h4 {
     opacity: 0.7;
     border: 1px solid white;
     padding: 5px;
-    background-color:  rgb(247, 247, 247);
+    /* background-color:  rgb(247, 247, 247); */
     border-radius: 50px;
+    background-color: #fff;
 }
 
 
@@ -167,6 +194,49 @@ h4 {
     margin-top: 10px;
     margin-bottom: 20px;
 }
+
+#create_todo, #update_todo {
+  background-color: #4ac089;
+  border: none;
+	outline: none;
+  width: 100px;
+  color: #fff;
+  height: 30px;
+}
+
+input {
+  border: none;
+  height: 30px;
+  padding-left: 10px;
+  border-bottom:1px solid #fff;
+
+}
+
+input:focus{
+    border-bottom:1px solid #4ac089;
+    outline: none !important;
+}
+
+#create_todo:hover, #update_todo:hover{
+  background-color: #fff;
+  color: #4ac089;
+  cursor: pointer;
+}
+#cancel {
+  background-color: #fff;
+  border: solid 1px #4ac089;
+	outline: none;
+  width: 100px;
+  color: #4ac089;
+  height: 30px;
+}
+
+#cancel:hover{
+  background-color: #4ac089;
+  color: #fff;
+  cursor: pointer;
+}
+
 
 @media (max-width: 400px) {
     .icons {

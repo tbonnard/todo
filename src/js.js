@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let prioToDo = document.querySelector('#priority');
     let project = document.querySelector('.todos');
 
-        
+
 
     // elements related to the projects
     class Project {
@@ -32,14 +32,14 @@ document.addEventListener("DOMContentLoaded", function () {
             this.projectName = projectName;
         }
     }
-    
+
     //elements triggered when user wants to create a new project
     document.querySelector('#submit_new_project').addEventListener('click', function () {
         if (document.querySelector('#input_new_project').value !='') {
             let project1 = new Project(document.querySelector('#input_new_project').value);
             document.querySelector('#input_new_project').value ='';
             addProj(project1);
-            storeProj(); 
+            storeProj();
             displayProj();
         }  else {document.querySelector('#input_new_project').style.borderColor = 'red'}
     });
@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // add the project to the array
     function addProj(proj) {
-        myProjects.push(proj);     
+        myProjects.push(proj);
     }
 
     //locally store the projects
@@ -90,8 +90,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 displayToDos();
                 hideCreate();
             });
-        }); 
-    
+        });
+
     }
 
     // click on the inbox
@@ -140,7 +140,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // define the max id to determine the ID of a new To Do 
+    // define the max id to determine the ID of a new To Do
     function maxId(){
         let max = [0];
         for (i in myTodos) {
@@ -152,10 +152,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-    // action that displays the form to create a new to do 
+    // action that displays the form to create a new to do
     document.querySelector('#img_add_top_nav').addEventListener('click', function () {
-        document.querySelector('#update_todo').style.display = 'none';   
-        document.querySelector('#create_todo').style.display = 'block';    
+        document.querySelector('#update_todo').style.display = 'none';
+        document.querySelector('#create_todo').style.display = 'block';
+        document.querySelector('#img_add_top_nav').style.display = 'none';
         resetCreateUpdate();
         displayCreate();
     });
@@ -176,6 +177,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (titleToDo.value !='') {
             //createToDo(projectDisplay, titleToDo.value, descriptionToDo.value, new Date(dueDateToDo.value).getTime(), prioToDo.value);
             createToDo(projectDisplay, titleToDo.value, descriptionToDo.value, dueDateToDo.value, prioToDo.value);
+            document.querySelector('#img_add_top_nav').style.display = 'block';
         } else {titleToDo.style.borderColor = 'red'}
     });
 
@@ -184,6 +186,7 @@ document.addEventListener("DOMContentLoaded", function () {
         resetCreateUpdate();
         titleToDo.style.borderColor = '';
         hideCreate();
+        document.querySelector('#img_add_top_nav').style.display = 'block';
     });
 
 
@@ -214,8 +217,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     displayCreateToDo(myTodos[i]);
                 }
             }
-        }        
-    }  
+        }
+    }
 
 
     // displaying to dos - Today -- updat date in milliseconds as date format different between mobile-desktop
@@ -232,7 +235,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 displayCreateToDo(myTodos[i]);
             }
         }
-    }  
+    }
 
     // displaying to dos - Week
     // define time difference (X) between current date and 7 days
@@ -246,7 +249,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 displayCreateToDo(myTodos[i]);
             }
         }
-    }  
+    }
 
 
 
@@ -275,8 +278,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const imagePrio = document.createElement('img');
         imagePrio.className = 'icons_prio';
-        if (todo.priority == 'Low') {imagePrio.src = "src/img/low.png"; imagePrio.style.backgroundColor = 'rgb(247, 247, 247)';}
-        else if (todo.priority == 'High') {imagePrio.src = "src/img/high.png"; imagePrio.style.backgroundColor = 'rgb(247, 247, 247)';}
+        if (todo.priority == 'Low') {imagePrio.src = "src/img/low.png";}
+        else if (todo.priority == 'High') {imagePrio.src = "src/img/high.png";}
         else {imagePrio.src = "src/img/medium.png";}
         imagePrio.alt = todo.priority;
         imagePrio.title = todo.priority;
@@ -306,17 +309,17 @@ document.addEventListener("DOMContentLoaded", function () {
             updateForm(x);
         })
 
-    }   
+    }
 
-    //dispay the form to update the to do with the to do's values 
+    //dispay the form to update the to do with the to do's values
     function updateForm(x) {
         titleToDo.value = x.title;
         descriptionToDo.value = x.description;
         dueDateToDo.value = x.dueDate;
         prioToDo.value = x.priority;
-        document.querySelector('#update_todo').style.display = 'block';    
-        document.querySelector('#create_todo').style.display = 'none'; 
-        document.querySelector('#update_todo').dataset.todo = x.id;    
+        document.querySelector('#update_todo').style.display = 'block';
+        document.querySelector('#create_todo').style.display = 'none';
+        document.querySelector('#update_todo').dataset.todo = x.id;
         displayCreate();
 
     }
@@ -328,12 +331,13 @@ document.addEventListener("DOMContentLoaded", function () {
         x.description =descriptionToDo.value;
         x.dueDate =dueDateToDo.value;
         x.priority = prioToDo.value ;
-        document.querySelector('#update_todo').style.display = 'none';    
-        document.querySelector('#create_todo').style.display = 'block';    
+        document.querySelector('#update_todo').style.display = 'none';
+        document.querySelector('#create_todo').style.display = 'block';
         store();
         hideCreate();
         removeInboxTitle();
         displayToDos();
+        document.querySelector('#img_add_top_nav').style.display = 'block';
     });
 
 
@@ -357,20 +361,20 @@ document.addEventListener("DOMContentLoaded", function () {
     function store() {
             localStorage.setItem('myTodos', JSON.stringify(myTodos));
     }
-    
+
     // add to dos to the array
     function addTodo(todo) {
-        myTodos.push(todo);     
+        myTodos.push(todo);
     }
 
     // hide the form
-    function hideCreate() {    
+    function hideCreate() {
         document.querySelector('.create').style.display = 'none';
         document.querySelector('.todos').style.display = 'block';
     }
 
     //display the form
-    function displayCreate() {    
+    function displayCreate() {
         document.querySelector('.create').style.display = 'block';
         document.querySelector('.todos').style.display = 'none';
     }
