@@ -156,13 +156,14 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelector('#img_add_top_nav').addEventListener('click', function () {
         document.querySelector('#update_todo').style.display = 'none';
         document.querySelector('#create_todo').style.display = 'block';
-        document.querySelector('#img_add_top_nav').style.display = 'none';
+        document.querySelector('#img_add_top_nav').style.visibility = 'hidden';
+        document.querySelector('#menu').style.visibility = 'hidden';
         resetCreateUpdate();
         displayCreate();
     });
 
     // click on the menu icon toggle the sidebar-menu
-    document.querySelector('#menu').addEventListener('click', function () {
+    document.querySelector('.menu_icon').addEventListener('click', function () {
         ToggleMenu();
     });
 
@@ -177,7 +178,8 @@ document.addEventListener("DOMContentLoaded", function () {
         if (titleToDo.value !='') {
             //createToDo(projectDisplay, titleToDo.value, descriptionToDo.value, new Date(dueDateToDo.value).getTime(), prioToDo.value);
             createToDo(projectDisplay, titleToDo.value, descriptionToDo.value, dueDateToDo.value, prioToDo.value);
-            document.querySelector('#img_add_top_nav').style.display = 'block';
+            document.querySelector('#img_add_top_nav').style.visibility = 'visible';
+            document.querySelector('#menu').style.visibility = 'visible';
         } else {titleToDo.style.borderColor = 'red'}
     });
 
@@ -186,7 +188,9 @@ document.addEventListener("DOMContentLoaded", function () {
         resetCreateUpdate();
         titleToDo.style.borderColor = '';
         hideCreate();
-        document.querySelector('#img_add_top_nav').style.display = 'block';
+        document.querySelector('#img_add_top_nav').style.visibility = 'visible';
+        document.querySelector('#menu').style.visibility = 'visible';
+
     });
 
 
@@ -265,6 +269,7 @@ document.addEventListener("DOMContentLoaded", function () {
         div.append(TitleToDoDiv);
 
         const imagesDiv = document.createElement('div');
+        imagesDiv.className='imagesDiv';
         div.append(imagesDiv);
 
         if (todo.project != 'Inbox') {
@@ -307,6 +312,8 @@ document.addEventListener("DOMContentLoaded", function () {
         imageEdit.addEventListener('click', function () {
             let x = myTodos.find(x => x.id == imageEdit.dataset.todo);
             updateForm(x);
+            document.querySelector('#menu').style.visibility = 'hidden';
+
         })
 
     }
@@ -337,7 +344,8 @@ document.addEventListener("DOMContentLoaded", function () {
         hideCreate();
         removeInboxTitle();
         displayToDos();
-        document.querySelector('#img_add_top_nav').style.display = 'block';
+        document.querySelector('#img_add_top_nav').style.visibility = 'visible';
+        document.querySelector('#menu').style.visibility = 'visible';
     });
 
 
