@@ -99,11 +99,16 @@ h3:hover {
 #input_new_project{
   width: 65%;
 }
+
 #submit_new_project {
     width: 24px;
     padding-left: 80px;
     padding-top: 5px;
     cursor: pointer;
+}
+
+#proj {
+margin-top: 10px;
 }
 
 h2 {
